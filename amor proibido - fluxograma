@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor Proibido - O Destino da Princesa</title>
+    <style>
+       
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); text-shadow: 0 0 10px rgba(192, 224, 255, 0.8); } 
+            100% { transform: scale(1); }
+        }
+
+        
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            background-color: #f7f7ff; 
+            background-image: url('https://images.unsplash.com/photo-1541527633211-f116a4a169b1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Imagem de castelo */
+            background-size: cover;
+            background-attachment: fixed;
+            color: #4a5a6a;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        
+        
+        h2 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.8em;
+            color: #c0e0ff; 
+            text-shadow: 0 0 8px rgba(160, 200, 240, 0.7), 0 0 15px rgba(100, 150, 200, 0.5); 
+            margin-bottom: 40px;
+            animation: pulse 4s infinite ease-in-out;
+            text-align: center;
+        }
+
+       
+        .passo-container {
+            background-color: rgba(255, 255, 255, 0.98); 
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            padding: 25px;
+            width: 100%; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            color: #4a5a6a; 
+        }
+
+        
+        .passo {
+            min-width: 280px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            animation: fadeIn 0.8s ease-out; 
+            width: 90%; 
+            max-width: 650px;
+            
+            
+            background-color: #f0f4ff; 
+            border: 1px solid #c0d0e0;
+            color: #4a5a6a; 
+        }
+
+        .passo-cabecalho {
+            font-weight: bold;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #6c7b95; 
+            text-transform: uppercase;
+        }
+
+        .passo-descricao {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+       
+        .passo.inicial {
+            background-color: #e0eaff; 
+            color: #444;
+            border: 3px solid #a0c0e0; 
+            box-shadow: 0 4px 15px rgba(160, 192, 224, 0.6);
+        }
+        
+        
+        .passo.final-feliz { 
+            background-color: #c0e0ff; 
+            border: 4px solid #70a0d0; 
+            font-weight: bold; 
+            color: #2a507a; 
+            box-shadow: 0 6px 15px rgba(112, 160, 208, 0.7);
+        }
+        
+        
+        .passo.final-triste { 
+            background-color: #f0e8ff; 
+            border: 4px solid #b0a0d0; 
+            font-weight: bold; 
+            color: #504070; 
+            box-shadow: 0 6px 15px rgba(176, 160, 208, 0.7);
+        }
+        
+        
+        .passo.final-tragico { 
+            background-color: #e0d0ff; 
+            border: 4px solid #604080; 
+            font-weight: bold; 
+            color: #403060; 
+            box-shadow: 0 8px 20px rgba(96, 64, 128, 0.8); 
+        }
+
+        
+        .conexao::after {
+            content: '↓';
+            display: block;
+            text-align: center;
+            font-size: 2.5em;
+            color: #a0c0e0; 
+            margin: -10px 0 10px 0;
+            line-height: 1;
+        }
+        .ramificacao { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            width: 100%; 
+            flex-wrap: wrap; 
+            margin-top: 15px;
+        }
+
+        
+        .btn-escolha {
+            background-color: #b0c4de; 
+            color: #405060;
+            padding: 14px 30px; 
+            border: 2px solid #80a0c0;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            margin: 10px;
+        }
+        .btn-escolha:hover {
+            background-color: #c0d0e0; 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        
+        #btn-voltar {
+            background-color: #a0c4e0; 
+            color: #304060; 
+            padding: 10px 20px;
+            border: 2px solid #80a0c0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.2s;
+            margin-top: 20px;
+        }
+        #btn-voltar:hover {
+            background-color: #c0d0f0; 
+            transform: scale(1.05);
+        }
+
+        
+        .fluxo-step { display: none; }
+        .hidden { display: none !important; }
+        .active-step .ramificacao { display: flex !important; }
+        .passo-completo .ramificacao { display: none !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>O Destino da Princesa</h2>
+        
+        <div id="story-flow">
+            <div class="passo-container active-step" data-base-id="passo-0">
+                <div class="passo inicial">
+                    <div class="passo-cabecalho">O INÍCIO</div>
+                    <div class="passo-descricao">Em um reino muito distante... Havia uma princesa muito bela, a mais bela do reino. Seus pais queriam que ela se casasse com o príncipe de outra aldeia, mas, ela era apaixonada pelo plebeu que trabalhava em sua casa. Em uma noite ela irá ao...</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-1-fluxo" data-current="passo-0">Jardim</button>
+                    <button class="btn-escolha" data-target="passo-2-fluxo" data-current="passo-0">Biblioteca</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="hidden" id="btn-voltar">⏪ Voltar ao Passo Anterior</button>
+
+        <div id="all-steps-template" style="display: none;">
+
+            <div class="passo-container fluxo-step" data-base-id="passo-1-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">ENCONTRO NO JARDIM</div>
+                    <div class="passo-descricao">No jardim cercada por flores e o canto dos pássaros, a princesa encontra um jovem jardineiro cuidando das roseiras. Ele é simples, gentil e fala com sinceridade, algo raro no castelo. Eles trocam olhares, e o clima fica diferente.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-3-fluxo" data-current="passo-1-fluxo">Conversar com ele e confessar que sente algo a mais</button>
+                    <button class="btn-escolha" data-target="passo-4-fluxo" data-current="passo-1-fluxo">Fingir indiferença e voltar para o castelo</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-3-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">A CONFISSÃO DELE</div>
+                    <div class="passo-descricao">O plebeu confessa que sempre a admirou em silêncio. A princesa sente seu coração acelerar, é a primeira vez que alguém a vê não como a futura rainha, mas como mulher.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-7-fluxo" data-current="passo-3-fluxo">Continuar se encontrando às escondidas</button>
+                    <button class="btn-escolha" data-target="passo-8-fluxo" data-current="passo-3-fluxo">Dizer que é perigoso e tentar se afastar</button>
+                </div>
+            </div>
+            
+            <div class="passo-container fluxo-step" data-base-id="passo-4-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">FINGIR INDIFERENÇA E VOLTAR PARA O CASTELO</div>
+                    <div class="passo-descricao">O medo toma conta e você finge que só estava inspecionando o jardim. O plebeu fica confuso.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-9-fluxo" data-current="passo-4-fluxo">Procurá-lo novamente para se despedir</button>
+                    <button class="btn-escolha" data-target="passo-10-fluxo" data-current="passo-4-fluxo">Ignorar seus sentimentos e aceitar o casamento</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-2-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">ENCONTRO NA BIBLIOTECA</div>
+                    <div class="passo-descricao">A princesa caminha entre os corredores silenciosos e encontra um rapaz arrumando os livros. É o ajudante do bibliotecário, um plebeu de olhar curioso e de sorriso tímido. Ele comenta sobre as histórias de amor proibido dos antigos contos. Ela sorri e sente seu coração bater diferente.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-5-fluxo" data-current="passo-2-fluxo">Perguntar se ele acredita em amores impossíveis</button>
+                    <button class="btn-escolha" data-target="passo-6-fluxo" data-current="passo-2-fluxo">Apenas pegar um livro qualquer e sair antes que alguém veja</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-5-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">PERGUNTAR SE ELE ACREDITA EM AMORES IMPOSSÍVEIS</div>
+                    <div class="passo-descricao">Sua pergunta o faz sorrir. Você sente a conexão. Antes que possa reagir, ele confessa seu amor proibido.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-7-fluxo" data-current="passo-5-fluxo">Decidir continuar encontrando-o</button>
+                    <button class="btn-escolha" data-target="passo-8-fluxo" data-current="passo-5-fluxo">Tentar se afastar</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-6-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">TENTATIVA DE ESQUECER</div>
+                    <div class="passo-descricao">Ela tenta se afastar do plebeu e seguir o que seus pais querem. O casamento com o príncipe se aproxima.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-9-fluxo" data-current="passo-6-fluxo">Procurá-lo novamente para se despedir</button>
+                    <button class="btn-escolha" data-target="passo-10-fluxo" data-current="passo-6-fluxo">Ignorar seus sentimentos e aceitar o casamento</button>
+                </div>
+            </div>
+
+
+            <div class="passo-container fluxo-step" data-base-id="passo-7-fluxo">
+                 <div class="passo acao">
+                    <div class="passo-cabecalho">OS ENCONTROS FREQUENTES</div>
+                    <div class="passo-descricao">A princesa encontra o plebeu repetidamente. Eles se conhecem, e o amor entre os dois se torna impossível de esconder. Mas o medo de serem descobertos aumenta.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-11-fluxo" data-current="passo-7-fluxo">Fugir juntos antes do amanhecer</button>
+                    <button class="btn-escolha" data-target="passo-12-fluxo" data-current="passo-7-fluxo">Permanecer no castelo e tentar viver o amor em segredo</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-8-fluxo">
+                 <div class="passo acao">
+                    <div class="passo-cabecalho">O AFASTAMENTO FALHO</div>
+                    <div class="passo-descricao">Dizer que é perigoso e tentar se afastar. É impossível esquecê-lo, a melancolia toma conta.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-13-fluxo" data-current="passo-8-fluxo">Procurá-lo novamente para se despedir</button>
+                    <button class="btn-escolha" data-target="passo-14-fluxo" data-current="passo-8-fluxo">Aceitar o casamento e viver sem amor</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-9-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">A ÚLTIMA DESPEDIDA</div>
+                    <div class="passo-descricao">A princesa tenta apagar o que sente. Mas quanto mais tenta, mais percebe que será infeliz sem ele.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-11-fluxo" data-current="passo-9-fluxo">Fugir juntos antes do amanhecer</button>
+                    <button class="btn-escolha" data-target="passo-12-fluxo" data-current="passo-9-fluxo">Permanecer no castelo e tentar viver o amor em segredo</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-10-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">A ESCOLHA AMARGA</div>
+                    <div class="passo-descricao">Ignorar seus sentimentos e aceitar o casamento.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="final-triste-fluxo" data-current="passo-10-fluxo">Ver o Final Triste</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-13-fluxo">
+                <div class="passo final-tragico">
+                    <div class="passo-cabecalho">O DESESPERO DA REVELAÇÃO</div>
+                    <div class="passo-descricao">A princesa procura o plebeu e revela o peso insuportável do seu amor proibido. A confissão é um ato de desespero que não oferece mais caminhos. **(O fluxo da história para aqui.)**</div>
+                </div>
+                </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-14-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">ACEITAR E VIVER SEM AMOR</div>
+                    <div class="passo-descricao">Aceitar o casamento e viver sem amor.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="final-triste-fluxo" data-current="passo-14-fluxo">Ver o Final Triste</button>
+                </div>
+            </div>
+             
+            <div class="passo-container fluxo-step" data-base-id="final-triste-fluxo">
+                <div class="passo final-triste">
+                    <div class="passo-cabecalho">FINAL TRISTE</div>
+                    <div class="passo-descricao">A princesa aceita o casamento arranjado. O plebeu é libertado e some do reino. Ela vive como rainha, mas o olhar triste conta outra história.</div>
+                </div>
+            </div>
+
+
+            <div class="passo-container fluxo-step" data-base-id="passo-11-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">A FUGA PERIGOSA</div>
+                    <div class="passo-descricao">A princesa e o plebeu fogem do castelo durante a madrugada. Montados em um cavalo, deixam para trás o trono, a riqueza e o destino forçado.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-15-fluxo" data-current="passo-11-fluxo">Continuar fugindo até chegar a outra aldeia</button>
+                    <button class="btn-escolha" data-target="passo-16-fluxo" data-current="passo-11-fluxo">Parar para descansar perto da floresta</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-15-fluxo">
+                <div class="passo final-feliz">
+                    <div class="passo-cabecalho">FINAL FELIZ</div>
+                    <div class="passo-descricao">A princesa e o plebeu chegam a uma aldeia distante. Vivem no simples, mas felizes, livres para se amar.</div>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-16-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">PARAR PARA DESCANSAR PERTO DA FLORESTA</div>
+                    <div class="passo-descricao">**Guardas encontram os dois juntos. O plebeu é preso. A princesa implora ao rei, mas ele está furioso.**</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-19-fluxo" data-current="passo-16-fluxo">Enfrentar o rei e declarar o amor em público</button>
+                    <button class="btn-escolha" data-target="passo-20-fluxo" data-current="passo-16-fluxo">Obedecer o pai e pedir perdão</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-12-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">PERMANECER NO CASTELO E TENTAR VIVER O AMOR SECRETO</div>
+                    <div class="passo-descricao">Eles tentam manter o amor escondido. Mas os rumores correm pelo castelo. Com o dia o rei descobre pistas sobre os encontros proibidos.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-17-fluxo" data-current="passo-12-fluxo">Contar a verdade ao rei</button>
+                    <button class="btn-escolha" data-target="passo-18-fluxo" data-current="passo-12-fluxo">Negar tudo e seguir escondendo</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-17-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">CONTAR A VERDADE AO REI</div>
+                    <div class="passo-descricao">Você conta toda a verdade ao rei. Ele, tomado pela fúria, declara o plebeu traidor. **[BLOCO PRETO]** A sua vida e a dele estão agora nas suas mãos.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="passo-19-fluxo" data-current="passo-17-fluxo">Enfrentar o rei e declarar o amor em público</button>
+                    <button class="btn-escolha" data-target="passo-20-fluxo" data-current="passo-17-fluxo">Obedecer o pai e pedir perdão</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="passo-18-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">NEGAR TUDO E SEGUIR ESCONDENDO</div>
+                    <div class="passo-descricao">Negar tudo e seguir escondendo.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="final-triste-fluxo" data-current="passo-18-fluxo">Ver o Final Triste</button>
+                </div>
+            </div>
+            
+            <div class="passo-container fluxo-step" data-base-id="passo-19-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">ENFRENTAR O REI E DECLARAR O AMOR EM PÚBLICO</div>
+                    <div class="passo-descricao">Você desafia o rei diante de toda a corte. Um ato de amor corajoso, mas com consequências fatais.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="final-tragico-fluxo-2" data-current="passo-19-fluxo">Ver o Final Trágico</button>
+                </div>
+            </div>
+            
+             <div class="passo-container fluxo-step" data-base-id="passo-20-fluxo">
+                <div class="passo acao">
+                    <div class="passo-cabecalho">OBEDECER O PAI</div>
+                    <div class="passo-descricao">Você se curva ao rei e pede perdão, salvando a vida do plebeu, mas perdendo sua liberdade.</div>
+                </div>
+                <div class="conexao"></div>
+                <div class="ramificacao">
+                    <button class="btn-escolha" data-target="final-triste-fluxo" data-current="passo-20-fluxo">Ver o Final Triste</button>
+                </div>
+            </div>
+
+            <div class="passo-container fluxo-step" data-base-id="final-tragico-fluxo-2">
+                <div class="passo final-tragico">
+                    <div class="passo-cabecalho">FINAL TRÁGICO</div>
+                    <div class="passo-descricao">A princesa enfrentou a família ou se desesperou com a revelação. O plebeu é banido para sempre, e ela é trancada na torre. Mesmo separados, o amor deles vira lenda.</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let historicoPassos = [];
+            
+            const flowContainer = document.getElementById('story-flow');
+            const btnVoltar = document.getElementById('btn-voltar');
+            
+            
+
+            function proximoPasso(idMostrar, idEsconder) {
+                const stepTemplate = document.querySelector(`#all-steps-template [data-base-id="${idMostrar}"]`);
+                
+                if (!stepTemplate) {
+                    console.error("Template do passo não encontrado:", idMostrar);
+                    return;
+                }
+
+                
+                const currentStepElement = flowContainer.lastElementChild;
+                if (currentStepElement) {
+                    currentStepElement.classList.remove('active-step');
+                    currentStepElement.classList.add('passo-completo'); 
+                }
+                
+              
+                historicoPassos.push(idEsconder);
+
+                
+                const clone = stepTemplate.cloneNode(true);
+                clone.removeAttribute('style'); 
+                clone.classList.remove('fluxo-step');
+                clone.classList.add('active-step'); 
+                
+                flowContainer.appendChild(clone);
+                
+               
+                clone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                
+                if (historicoPassos.length > 0) {
+                    btnVoltar.classList.remove('hidden');
+                }
+            }
+
+            function voltarPasso() {
+                if (historicoPassos.length === 0) {
+                    btnVoltar.classList.add('hidden');
+                    return;
+                }
+                
+              
+                const passoRemover = flowContainer.lastElementChild;
+                if (passoRemover) {
+                    passoRemover.remove();
+                }
+                
+               
+                historicoPassos.pop();
+                
+               
+                const passoRestaurar = flowContainer.lastElementChild;
+
+                if (passoRestaurar) {
+                  
+                    passoRestaurar.classList.add('active-step');
+                    passoRestaurar.classList.remove('passo-completo');
+                    
+                    passoRestaurar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                
+               
+                if (historicoPassos.length === 0) {
+                    btnVoltar.classList.add('hidden');
+                }
+            }
+
+            
+            
+            btnVoltar.addEventListener('click', voltarPasso);
+
+            flowContainer.addEventListener('click', function(event) {
+                if (event.target.classList.contains('btn-escolha')) {
+                    const targetBtn = event.target;
+                    
+                    const currentStepContainer = flowContainer.lastElementChild;
+                    if (!currentStepContainer || !currentStepContainer.contains(targetBtn)) {
+                        return;
+                    }
+
+                    const idMostrar = targetBtn.dataset.target;
+                    const idEsconder = targetBtn.dataset.current;
+
+                    if (idMostrar && idEsconder) {
+                        proximoPasso(idMostrar, idEsconder);
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
